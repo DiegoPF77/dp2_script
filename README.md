@@ -18,6 +18,14 @@ Para usar este script debéis ejecutar:
 ```
 main.py -t <topcontainers> -e <elapsedtime> -i <imagename>
 ```
+ejemplo:
+Creamos un máximo de 100 contenedores y que envíe datos cada 2 segundos un contenedor llamado client
+
+```
+main.py -t 100 -e 2 -i client
+
+```
+
 
 Recibiréis un output como el siguiente:
 
