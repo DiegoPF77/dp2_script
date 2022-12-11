@@ -15,14 +15,14 @@ Este script main.py simula la existencia de multiples clientes enviando datos. P
 
 Para usar este script debéis ejecutar:
 
-`code`
+```
 main.py -t <topcontainers> -e <elapsedtime> -i <imagename>
-`code`
+```
 
 Recibiréis un output como el siguiente:
 
-`code`
-#############################
+```
+########################
 Starting Generator execution
 #############################
 Top Containers: 7
@@ -35,5 +35,5 @@ Container Created with id: 3db60b0903e23ea8498ea91cc83fc61c1c11d631a5d7f48c121a5
 Container Created with id: c87dda5e856e29e234b3ff7c243568fc76c834d522e13f238707c7dd980b9593 for user: 6a0ef69eb7d3439195ab0f14f1746613
 Container Created with id: c497013d7f0c77eb03e6d966aea2af7687c0e0c3e85bb5fab92d4a4261a42793 for user: fa8f500274024984aec82963067adf7a
 Container Removed with id: 3db60b0903e23ea8498ea91cc83fc61c1c11d631a5d7f48c121a5c1c240c9bcc
-`code`
+```
 
