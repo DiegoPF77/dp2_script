@@ -3,10 +3,20 @@ import os
 import time
 import pandas as pd
 import random
+from confluent_kafka import Producer
 
-user_id=os.getenv('USER_ID')
-topic_id=os.getenv('TOPIC_ID')
-time_lapse=int(os.getenv('TIME_ID'))
+
+user_id=1 #os.getenv('USER_ID')
+topic_id=2 #os.getenv('TOPIC_ID')
+time_lapse=3 #int(os.getenv('TIME_ID'))
+
+config = {
+    'bootstrap.servers': 'localhost:9092',
+    'client.id': 'python-producer'
+}
+producer = Producer(config)
+
+TOPIC_ID = 'heart_rate'
 
 counter=0
 lines=[]
@@ -23,21 +33,18 @@ def generatedata():
     return json.dumps(data)
 
 def senddata():
+    producer.produce(topic=TOPIC_ID, value=generatedata(), key=key)
+    producer.flush()
 
-    # Coloca el código para enviar los datos a tu sistema de mensajería
-    # Utiliza la variable topic id para especificar el topico destino
-    print(generatedata())
-
-
-with open('data/data.csv', 'r') as file:
+count=0
+with open('client/data/data.csv', 'r') as file:
     lines = file.readlines()
+    key = str(count)
+    lines = [float(line.strip()) for line in lines]
 
-lines = [float(line.strip()) for line in lines]
-    
-print(lines)
+
 
 
 while True:
     senddata()
     time.sleep(time_lapse)
-
